@@ -1,0 +1,91 @@
+### RELACIONAMENTOS
+Indica que UM ou MAIS ATRIBUTOS de uma entidade VISITA outra.
+
+- "Simples"
+	Professor — — — Área
+
+- Herança
+	Funcionário
+		▢ — — — — Professor
+		L — — — — Técnico
+		L — — — — Administrativo
+
+- Associação
+	Médico — — — Exame — — — Paciente
+		           |
+	               |
+		      Laboratório
+
+—————————————————————————————————————————————————————————————————
+
+## RELACIONAMENTO DE CARDINALIDADE
+	1..N [☑️] -> QUEM TIVER "N" PUXA A OUTRA CHAVE PRIMÁRIA
+	N..N [⚠️] -> SE ENCONTRAM E CRIAM UMA TABELA ADICIONAL
+
+		[Time] — <MANDANTE> 1..N — — — <Jogo>
+		L — <VISITANTE> 1..N — — — — — — ⌋
+
+		# Time
+		idTime		Nome
+		100		Absol
+		101		Chimchar
+
+		# Time_Time OU Jogo
+		idJogo		Mandante	Visitante	data
+		1		100		101		10/7/25
+		2		100		101		15/8/24
+
+—————————————————————————————————————————————————————————————————
+
+	# Professor
+	id	nome	idArea
+	01	Alex	101
+	02	Ana	101
+	03	Ricar.	101
+	04	Rodri.	100
+	05	Pedro	102
+	06	Sofia	103
+
+	# Area
+	id	Descricao
+	100	Saude
+	101	Tecnologia
+	102	Social
+	103	Humanas
+
+—————————————————————————————————————————————————————————————————
+
+	[Atleta] 0..N — — — — 1..1 [Categoria]
+
+	# Atleta
+	idAtleta	Nome		Categoria
+	1		Alex		502
+	2		Guilherme	500
+	3		Pedro		501 — — — — — — DEPENDÊNCIA
+
+	# Categoria
+	idCategoria	Descricao
+	500		1º
+	501		2º
+	502		3º
+
+	*Nota: QUEM TIVER "N" PUXA A OUTRA CHAVE PRIMÁRIA
+
+—————————————————————————————————————————————————————————————————
+
+	[Turma] 0..N — — — — 1..1 [Disciplina]
+
+	# Turma
+	idTurma		Ano	Sem.	Disciplina
+	G01		2025	1	E101
+	G02		2026	1	E101
+
+	# Disciplina
+	idDisciplina	Nome
+	E101		Banco de Dados
+	E102		Estruturas de Dados
+	A103		Metodologia
+
+—————————————————————————————————————————————————————————————————
+
+
