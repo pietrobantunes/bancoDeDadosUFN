@@ -1,7 +1,7 @@
 select Aluno.nome, Curso.descricao
 	from Disciplina, Turma, Matricula, Aluno, Curso
-		where Disciplina.nome == "Estruturas de Dados" and Turma.ano_semestre like "2026%"
-			Turma.ano_semestre like "2026%"
+		where Disciplina.nome == "Estruturas de Dados" and
+			Turma.ano_semestre like "2026%" and
 			Disciplina.id_disciplina == Turma.id_disciplina and
 			Turma.id_turma = Matricula.id_turma and
 			Matricula.id_aluno == Aluno.id_aluno and
